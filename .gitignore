@@ -38,3 +38,4 @@
 !/app/assets/builds/.keep
 
 .idea
+docker_dev/.env_docker

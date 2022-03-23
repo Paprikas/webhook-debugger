@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  web:
+    tty: true
+    stdin_open: true
+    restart: always
+    build:
+      dockerfile: ./docker_dev/Dockerfile
+      context: .
+    volumes:
+      - .:/app
+      - bundle_volume:/bundle
+    env_file:
+      - ./docker_dev/.env_docker
+    command: ./docker_dev/start.sh
+    ports:
+      - 3000:3000
+
+volumes:
+  bundle_volume:
+    driver: local
