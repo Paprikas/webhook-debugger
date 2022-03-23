@@ -5,6 +5,7 @@ MAINTAINER Maxim Zelenkin <nudepatch@gmail.com>
 RUN apt update -q && apt install -y \
     build-essential \
     libpq-dev \
+    postgresql-client \
     nano > /dev/null
 
 ENV APP_PATH /app
