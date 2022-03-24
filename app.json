@@ -1,0 +1,21 @@
+{
+  "name": "WebhookDebugger",
+  "description": "This app was made to debug Webhooks",
+  "addons": [
+    "scheduler:standard",
+    "heroku-postgresql:hobby-dev",
+    "heroku-redis:hobby-dev"
+  ],
+  "environments": {
+    "review": {
+      "addons": [
+        "scheduler:standard",
+        "heroku-postgresql:hobby-dev",
+        "heroku-redis:hobby-dev"
+      ],
+      "scripts": {
+        "postdeploy": "bundle exec rails db:seed"
+      }
+    }
+  }
+}
