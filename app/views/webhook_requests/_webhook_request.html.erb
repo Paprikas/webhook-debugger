@@ -2,46 +2,54 @@
   <div>
     <table class="border-collapse table-auto w-full text-sm mt-10">
       <thead>
-      <tr>
-        <th class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-600 dark:text-slate-200 text-left">Param</th>
-        <th class="border-b dark:border-slate-600 font-medium p-4 pr-8 pt-0 pb-3 text-slate-600 dark:text-slate-200 text-left">Value</th>
-      </tr>
+        <tr>
+          <th class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-600 dark:text-slate-200 text-left">Param</th>
+          <th class="border-b dark:border-slate-600 font-medium p-4 pr-8 pt-0 pb-3 text-slate-600 dark:text-slate-200 text-left">Value</th>
+        </tr>
       </thead>
       <tbody class="bg-white dark:bg-slate-800">
-      <tr>
-        <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
-          Timestamp
-        </td>
-        <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
-          <%= webhook_request.created_at %>
-        </td>
-      </tr>
-      <tr>
-        <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
-          HTTP Method
-        </td>
-        <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
-          <%= webhook_request.request_method %>
-        </td>
-      </tr>
-      <tr>
-        <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
-          Original URL
-        </td>
-        <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
-          <%= webhook_request.original_url %>
-        </td>
-      </tr>
-      <tr>
-        <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
-          Headers
-        </td>
-        <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
-          <% webhook_request.headers.each do |key, value| %>
-            <p><%= key %>: <%= value %></p>
-          <% end %>
-        </td>
-      </tr>
+        <tr>
+          <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+            Timestamp
+          </td>
+          <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
+            <%= webhook_request.created_at %>
+          </td>
+        </tr>
+        <tr>
+          <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+            HTTP Method
+          </td>
+          <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
+            <%= webhook_request.request_method %>
+          </td>
+        </tr>
+        <tr>
+          <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+            Original URL
+          </td>
+          <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
+            <%= webhook_request.original_url %>
+          </td>
+        </tr>
+        <tr>
+          <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+            Headers
+          </td>
+          <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
+            <% webhook_request.headers.each do |key, value| %>
+              <p><%= key %>: <%= value %></p>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">
+            Raw post
+          </td>
+          <td class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400">
+            <%= webhook_request.raw_post %>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
