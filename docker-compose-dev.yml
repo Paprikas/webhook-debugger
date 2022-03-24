@@ -9,6 +9,10 @@ services:
     # Debug from local machine
 #    ports:
 #      - 5333:5432
+  redis:
+    image: redis:alpine
+    volumes:
+      - redis_volume:/data
   web:
     tty: true
     stdin_open: true
@@ -26,9 +30,12 @@ services:
       - 3000:3000
     depends_on:
       - postgresql
+      - redis
 
 volumes:
   postgresql_volume:
+    driver: local
+  redis_volume:
     driver: local
   bundle_volume:
     driver: local
