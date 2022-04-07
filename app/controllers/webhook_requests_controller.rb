@@ -1,5 +1,6 @@
 class WebhookRequestsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
+  before_action :authenticate!, except: :create
 
   def index
     @webhook_requests = WebhookRequest.order(created_at: :desc)
