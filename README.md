@@ -12,4 +12,4 @@ After deploy, Basic Auth credentials will be generated automatically.
 
 You can find your `username` and `password` in Heroku's Config Vars (ENV variables)
 
-Checkout [app.json](blob/main/app.json) for more details.
+Checkout [app.json](app.json) for more details.
