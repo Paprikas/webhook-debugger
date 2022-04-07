@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: '*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: password
+        ports: ['5432:5432']
+      redis:
+        image: redis:alpine
+        ports: ['6379:6379']
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+      # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+      # change this to (see https://github.com/ruby/setup-ruby#versioning):
+        uses: ruby/setup-ruby@v1
+        with:
+          # .ruby-version file used instead
+          # ruby-version: 3.0
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Standardrb
+        run: bundle exec standardrb
+      - name: Run tests
+        env:
+          RAILS_ENV: test
+          REDIS_URL: redis://localhost:6379/0
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: password
+          DATABASE_URL: postgres://postgres:password@localhost:5432/webhook_debugger_test
+        run: |
+          bundle exec rails db:test:prepare
+          bundle exec rails test:prepare
+          bundle exec rails test
