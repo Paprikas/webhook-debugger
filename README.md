@@ -8,8 +8,8 @@ This app was made to debug Webhook Requests
 
 ## Setup Basic Authentication
 
-After deploy, Basic Auth credentials will be generated automatically.
+Before creating App, you will be prompted for `username` and `password`.
 
-You can find your `username` and `password` in Heroku's Config Vars (ENV variables)
+After deploy, you can find your `username` and `password` in Heroku's Config Vars (ENV variables)
 
 Checkout [app.json](app.json) for more details.
