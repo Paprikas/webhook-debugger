@@ -21,11 +21,10 @@
   "env": {
     "HTTP_BASIC_AUTH_NAME": {
       "description": "Username for Http Basic Auth",
-      "generator": "admin"
+      "value": "admin"
     },
     "HTTP_BASIC_AUTH_PASSWORD": {
-      "description": "Password for Http Basic Auth",
-      "generator": "secret"
+      "description": "Password for Http Basic Auth"
     }
   }
 }
